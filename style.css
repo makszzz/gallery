@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #ffffff;
+  color: #111;
+}
+
+.gallery-section {
+  padding: 70px 20px;
+  overflow: hidden;
+}
+
+.gallery-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 30px;
+}
+
+.gallery-tag {
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.gallery-header h2 {
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.gallery-text {
+  font-size: 18px;
+  color: #555;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: autoScroll 40s linear infinite;
+}
+
+.carousel:hover .carousel-track {
+  animation-play-state: paused;
+}
+
+.slide {
+  flex: 0 0 auto;
+  width: 320px;
+  height: 420px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: #f4f4f4;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel::before,
+.carousel::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel::before {
+  left: 0;
+  background: linear-gradient(to right, white, transparent);
+}
+
+.carousel::after {
+  right: 0;
+  background: linear-gradient(to left, white, transparent);
+}
+
+@keyframes autoScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 900px) {
+  .gallery-header h2 {
+    font-size: 32px;
+  }
+
+  .gallery-text {
+    font-size: 16px;
+  }
+
+  .slide {
+    width: 260px;
+    height: 340px;
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery-section {
+    padding: 50px 15px;
+  }
+
+  .gallery-header h2 {
+    font-size: 28px;
+  }
+
+  .slide {
+    width: 220px;
+    height: 300px;
+  }
+
+  .carousel-track {
+    gap: 14px;
+    animation-duration: 28s;
+  }
+
+  .carousel::before,
+  .carousel::after {
+    width: 30px;
+  }
+}
