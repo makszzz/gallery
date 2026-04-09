@@ -55,6 +55,8 @@ body {
   scrollbar-width: none;
   cursor: grab;
   touch-action: pan-x;
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
 }
 
 .carousel::-webkit-scrollbar {
@@ -80,6 +82,7 @@ body {
   overflow: hidden;
   background: #f4f4f4;
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.09);
+  user-select: none;
 }
 
 .slide img {
@@ -87,6 +90,9 @@ body {
   height: 100%;
   object-fit: cover;
   display: block;
+  pointer-events: none;
+  -webkit-user-drag: none;
+  user-select: none;
 }
 
 .carousel-wrap::before,
@@ -95,19 +101,19 @@ body {
   position: absolute;
   top: 0;
   height: 100%;
-  width: 28px;
+  width: 18px;
   z-index: 2;
   pointer-events: none;
 }
 
 .carousel-wrap::before {
   left: 0;
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
 }
 
 .carousel-wrap::after {
   right: 0;
-  background: linear-gradient(to left, rgba(255, 255, 255, 0.28), rgba(255, 255, 255, 0));
+  background: linear-gradient(to left, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0));
 }
 
 .carousel-btn {
@@ -127,11 +133,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.2s ease, background 0.2s ease, opacity 0.2s ease;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .carousel-btn:hover {
-  background: rgba(255, 255, 255, 1);
+  background: #fff;
   transform: translateY(-50%) scale(1.05);
 }
 
@@ -189,7 +195,7 @@ body {
 
   .carousel-wrap::before,
   .carousel-wrap::after {
-    width: 18px;
+    width: 10px;
   }
 
   .carousel-btn {
