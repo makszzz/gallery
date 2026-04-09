@@ -3,20 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Appliance Repair Gallery</title>
+  <!-- <title>Gallery</title> -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <section class="gallery-section">
     <div class="gallery-header">
       <p class="gallery-tag">Recent Work</p>
-      <h2>Appliance Repair Gallery</h2>
-      <p class="gallery-text">
-        Real photos from appliance repair jobs.
-      </p>
+      <!-- <h2>Appliance Repair Gallery</h2> 
+      <p class="gallery-text">Real photos from appliance repair jobs.</p> -->
     </div>
 
     <div class="carousel-wrap">
+      <button class="carousel-btn carousel-btn-left" id="prevBtn" aria-label="Previous images">
+        &#10094;
+      </button>
+
       <div class="carousel" id="carousel">
         <div class="carousel-track">
           <div class="slide"><img src="./img1.jpg" alt="Appliance repair photo 1" /></div>
@@ -42,6 +44,10 @@
           <div class="slide"><img src="./img10.jpg" alt="Appliance repair photo 10" /></div>
         </div>
       </div>
+
+      <button class="carousel-btn carousel-btn-right" id="nextBtn" aria-label="Next images">
+        &#10095;
+      </button>
     </div>
 
     <script src="script.js"></script>
